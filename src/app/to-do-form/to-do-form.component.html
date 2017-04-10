@@ -1,0 +1,21 @@
+<header>
+  <h2>Add To-Do</h2>
+</header>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="row">
+    <div class="col-md-4">
+      <input type="text" name="content" id="content" formControlName="content">
+    </div>
+    <div class="col-md-1">
+      <select name="priority" id="priority" formControlName="priority">
+        <option *ngFor="let priority of lookupLists.priority" value="{{priority}}">{{priority}}</option>
+      </select>
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-small" type="submit" [disabled]="!form.valid">Add</button>
+    </div>
+    <div *ngIf="form.controls.content.errors?.pattern" class="col-md-4 alert alert-danger" role="alert">
+      Cannot Use Special Characters
+    </div>
+  </div>
+</form>
