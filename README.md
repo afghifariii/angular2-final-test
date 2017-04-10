@@ -19,4 +19,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * `npm install` *it wil take a minute to install*
 * `ng serve`
-* will be run on `localhost:42000`
+* will be run on `localhost:4200`
