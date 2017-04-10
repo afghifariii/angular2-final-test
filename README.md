@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
 
-## Development server
+## Detail
 
 * I use 3 Component wich separate into 3 folders inside src/app/ (to-do, to-do-form, to-do-list)
 * 1 Custom directive (hover.directive) in src/app/
