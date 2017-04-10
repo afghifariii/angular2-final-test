@@ -11,6 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * 1 mock-xhr-backend in src/app/
 * 1 provider (lookupLists and lookupListToken for priority) in src/app/to-do-list/
 * 1 built-in validator.
+* Use 1 route.
 
 
 ## To Install
