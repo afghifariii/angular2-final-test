@@ -1,4 +1,5 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 
 import { ToDoListService } from "./to-do-list.service";
 
@@ -12,12 +13,16 @@ export class ToDoListComponent{
 
   noteItems = [];
   note = '';
+  paramsSubscription;
 
   constructor(
-    private toDoListService: ToDoListService) { }
+    private toDoListService: ToDoListService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getAll(this.note);
+    this.paramsSubscription = this.activatedRoute.params.subscribe(params =>{
+      this.getAll(this.note);
+    })
   }
 
   getAll(note){
@@ -32,6 +37,12 @@ export class ToDoListComponent{
     .subscribe(() => {
       this.getAll(this.note)
     });
+  }
+
+  ngOnDestroy() {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.paramsSubscription.unsubscribe();
   }
 
 }
