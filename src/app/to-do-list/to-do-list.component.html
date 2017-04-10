@@ -1,0 +1,6 @@
+<header>
+  <div> {{ noteItems | priorityList }} </div>
+</header>
+
+<to-do *ngFor="let noteItem of noteItems" [noteItem]="noteItem" (delete)="onDelete($event)">
+</to-do>
