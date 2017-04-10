@@ -14,3 +14,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 *Since i use mock-xhr-backend it will reload the list after u add a new list, u have to delete 1 to see the updated list*
+
+## To Install
+
+* `npm install`
+* `ng serve`
+* will be run on `localhost:42000`
