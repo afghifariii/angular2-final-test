@@ -24,12 +24,16 @@ export class ToDoFormComponent {
       content: this.formBuilder.control('', Validators.compose([Validators.required, Validators.pattern('[\\w\\-\\s\\/]+')])),
       priority: this.formBuilder.control('Normal')
     });
+    console.log("onInit");
   }
 
   onSubmit(noteItem) {
     this.toDoListService.add(noteItem)
-    .subscribe(() => {
-      this.router.navigate(['/'])
-    });
+      .subscribe(() => {
+        console.log("onSubmit");
+        this.router.navigate(['/']);
+
+      });
+
   }
 }

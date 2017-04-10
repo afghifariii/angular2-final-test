@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, URLSearchParams } from "@angular/http";
 import 'rxjs/add/operator/map';
+import { Subject } from "rxjs/subject";
 
 
 
@@ -8,6 +9,7 @@ import 'rxjs/add/operator/map';
 export class ToDoListService {
   constructor(private http: Http) { }
 
+  subject: Subject<any> = new Subject()
 
   get(note) {
     let searchParams = new URLSearchParams();
@@ -20,7 +22,9 @@ export class ToDoListService {
 
   add(noteItem) {
     return this.http.post('noteitems', noteItem)
-      .map(response => { });
+      .map(response => {
+        this.subject.next(true)
+      });
   }
 
   remove(noteItem) {

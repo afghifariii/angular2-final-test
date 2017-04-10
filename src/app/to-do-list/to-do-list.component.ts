@@ -8,7 +8,7 @@ import { ToDoListService } from "./to-do-list.service";
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.css']
 })
-export class ToDoListComponent{
+export class ToDoListComponent {
   @Output() noteItem = new EventEmitter();
 
   noteItems = [];
@@ -20,28 +20,30 @@ export class ToDoListComponent{
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.paramsSubscription = this.activatedRoute.params.subscribe(params =>{
+    this.paramsSubscription = this.activatedRoute.params.subscribe(params => {
+      this.getAll(this.note);
+      console.log("initList");
+    })
+    this.toDoListService.subject.subscribe(() => {
       this.getAll(this.note);
     })
   }
 
-  getAll(note){
+  getAll(note) {
     this.note = note;
-    this. toDoListService.get(note).subscribe((noteItems) => {
+    this.toDoListService.get(note).subscribe((noteItems) => {
       this.noteItems = noteItems
     });
   }
 
-  onDelete(noteItem){
+  onDelete(noteItem) {
     this.toDoListService.remove(noteItem)
-    .subscribe(() => {
-      this.getAll(this.note)
-    });
+      .subscribe(() => {
+        this.getAll(this.note)
+      });
   }
 
   ngOnDestroy() {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     this.paramsSubscription.unsubscribe();
   }
 
