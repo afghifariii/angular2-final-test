@@ -1,0 +1,4 @@
+button.btn.btn-small.hovering{
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.8);
+}
