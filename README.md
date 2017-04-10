@@ -13,8 +13,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * 1 built-in validator.
 
 
-*Since i use mock-xhr-backend it will reload the list after u add a new list, u have to delete 1 to see the updated list*
-
 ## To Install
 
 * `npm install` *it wil take a minute to install*
